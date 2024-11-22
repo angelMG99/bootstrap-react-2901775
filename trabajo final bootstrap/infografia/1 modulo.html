@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitología Griega - La Titanomaquia</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('data:image/jpeg;base64,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');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            border: 2px solid #c5a572;
+            border-radius: 15px;
+        }
+
+        h1,
+        h2 {
+            color: #8b0000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-family: 'Cinzel Decorative', cursive;
+        }
+
+        .btn-primary {
+            background-color: #8b0000;
+            border-color: #8b0000;
+            font-family: 'Cinzel', serif;
+        }
+
+        .btn-primary:hover {
+            background-color: #5c0000;
+            border-color: #5c0000;
+        }
+
+        .correct-answer {
+            background-color: rgba(40, 167, 69, 0.2);
+        }
+
+        .wrong-answer {
+            background-color: rgba(220, 53, 69, 0.2);
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid my-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card p-4">
+                    <h1 class="text-center mb-4">La Titanomaquia</h1>
+                    <div class="ratio ratio-16x9 mb-4">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/ESmvKtQ0EcA?si=JNe7TMc8reBfYYjd"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <h4>La Titanomaquia: La Gran Guerra de los Dioses</h4>
+
+                    <p>La Titanomaquia fue una guerra de una década entre los Titanes y los dioses olímpicos por el
+                        control del cosmos. Liderados por el Titán Cronos, los Titanes fueron derrotados por los dioses
+                        más jóvenes, encabezados por Zeus. La Titanomaquia es una de las batallas más épicas de la
+                        mitología griega. Se trata de una guerra
+                        cósmica entre dos generaciones de dioses: los Titanes, hijos de Gea (la Tierra) y Urano (el
+                        Cielo), y los Olímpicos, liderados por Zeus.</p>
+
+                    <h4>¿Cómo empezó todo?</h4>
+
+                    <p>El reinado de Cronos: Cronos, uno de los Titanes, derrocó a su padre Urano y se convirtió en el
+                        gobernante del universo. Temiendo ser destronado por sus hijos, se los comía al nacer.
+                        El nacimiento de Zeus: Rea, la esposa de Cronos, logró esconder a su hijo Zeus. Cuando creció,
+                        Zeus liberó a sus hermanos y hermanas que habían sido devorados por su padre.
+                        La guerra: Zeus y sus hermanos, Poseidón y Hades, junto con otros dioses, se enfrentaron a los
+                        Titanes en una terrible batalla que duró diez años.</p>
+
+
+                    <h4>¿Cómo terminó?</h4>
+
+                    <p></p>La victoria de los Olímpicos: Con la ayuda de los Cíclopes y los Hecatónquiros (gigantes de
+                    cien
+                    brazos), los Olímpicos lograron vencer a los Titanes.
+                    El castigo a los Titanes: Los Titanes fueron encadenados y confinados en el Tártaro, un lugar
+                    oscuro y abismal en el inframundo.</p>
+
+                    <h4>¿Cuál fue el resultado?</h4>
+
+                    <p>El nacimiento del Olimpo: Con la victoria de los Olímpicos, se estableció el Monte Olimpo como
+                        la morada de los dioses y el centro del universo. Zeus se convirtió en el rey de los dioses y
+                        repartió el mundo entre sus hermanos: Poseidón gobernó los mares y Hades el inframundo.
+                        En resumen, la Titanomaquia fue un conflicto fundamental en la mitología griega que marcó el
+                        inicio de una nueva era y el establecimiento del orden cósmico. Esta guerra representa la lucha
+                        eterna entre el antiguo y el nuevo, el caos y el orden, y ha sido fuente de inspiración para
+                        innumerables artistas y escritores a lo largo de los siglo. Este conflicto épico marcó la
+                        transición del dominio de los Titanes al reinado de los dioses
+                        olímpicos, quienes se convertirían en las principales deidades del panteón griego.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card p-4">
+                    <h2 class="text-center mb-4">Pon a prueba tus conocimientos</h2>
+                    <form id="quizForm">
+                        <div class="mb-3">
+                            <label for="question1" class="form-label">¿Quién era el líder de los Titanes?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question1" value="1">
+                                <label class="form-check-label">Poseidón</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question1" value="2">
+                                <label class="form-check-label">Cronos</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question1" value="3">
+                                <label class="form-check-label">Hades</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question1" value="4">
+                                <label class="form-check-label">Zeus</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="question2" class="form-label">¿Cuánto duró la Titanomaquia?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question2" value="1">
+                                <label class="form-check-label">5 años</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question2" value="2">
+                                <label class="form-check-label">10 años</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question2" value="3">
+                                <label class="form-check-label">15 años</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question2" value="4">
+                                <label class="form-check-label">20 años</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="question3" class="form-label">¿Qué dios olímpico lideró la derrota de los
+                                Titanes?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question3" value="1">
+                                <label class="form-check-label">Poseidón</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question3" value="2">
+                                <label class="form-check-label">Hera</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question3" value="3">
+                                <label class="form-check-label">Atenea</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question3" value="4">
+                                <label class="form-check-label">Zeus</label>
+                            </div>
+                        </div>
+                        <a href="resultado modulos.html">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </a>
+                    </form>
+                    <div id="result" class="alert"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            
+            const correctAnswers = {
+                question1: "2",
+                question2: "2",
+                question3: "4"
+            };
+
+            let score = 0;
+            let total = Object.keys(correctAnswers).length;
+
+            
+            for (let question in correctAnswers) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected) {
+                    if (selected.value === correctAnswers[question]) {
+                        score++;
+                        selected.parentElement.classList.add('correct-answer');
+                    } else {
+                        selected.parentElement.classList.add('wrong-answer');
+                        
+                        document.querySelector(`input[name="${question}"][value="${correctAnswers[question]}"]`)
+                            .parentElement.classList.add('correct-answer');
+                    }
+                }
+            }
+
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            if (score === total) {
+                resultDiv.className = 'alert alert-success';
+                resultDiv.textContent = `¡Excelente! Has respondido correctamente todas las preguntas (${score}/${total})`;
+            } else if (score > total / 2) {
+                resultDiv.className = 'alert alert-info';
+                resultDiv.textContent = `¡Buen trabajo! Has respondido correctamente ${score} de ${total} preguntas`;
+            } else {
+                resultDiv.className = 'alert alert-warning';
+                resultDiv.textContent = `Has respondido correctamente ${score} de ${total} preguntas. ¡Sigue estudiando!`;
+            }
+
+            
+            const inputs = document.querySelectorAll('input[type="radio"]');
+            inputs.forEach(input => input.disabled = true);
+
+            
+            const submitButton = document.querySelector('button[type="submit"]');
+            submitButton.textContent = 'Examen Completado';
+            submitButton.disabled = true;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Módulo - Mitología Griega</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('/api/placeholder/1920/1080') center/cover;
+            color: #fff;
+            min-height: 100vh;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .greek-border {
+            border: 2px solid #c9a959;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .greek-header {
+            background: linear-gradient(45deg, #c9a959, #dab964);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .greek-icon {
+            font-size: 3rem;
+            color: #c9a959;
+        }
+
+        .achievement {
+            transition: transform 0.3s;
+        }
+
+        .achievement:hover {
+            transform: scale(1.05);
+        }
+
+        .column-decoration {
+            background: linear-gradient(to bottom, #c9a959, transparent);
+            width: 2px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+
+        <div class="text-center mb-5">
+            <h1 class="display-4 greek-header mb-4">🏛️ El Oráculo de Delfos Ha Hablado 🏛️</h1>
+            <p class="lead">Has completado tu viaje de sabiduría, noble guerrero</p>
+        </div>
+
+        <div class="greek-border p-4 mb-5">
+            <div class="row">
+
+                <div class="col-md-6 mb-4">
+                    <div class="text-center achievement greek-border p-4">
+                        <div class="greek-icon mb-3">⚡</div>
+                        <h3 class="greek-header">Poder de Zeus</h3>
+                        <div class="display-1 greek-header mb-3">85%</div>
+                        <p>Has demostrado el poder de un semidiós</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="achievement greek-border p-4">
+                        <div class="greek-icon mb-3">🏆</div>
+                        <h3 class="greek-header">Logros Alcanzados</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-2">🌟</span>
+                                    <div>
+                                        <h5 class="mb-0">Sabiduría de Atenea</h5>
+                                        <small>Respondiste todas las preguntas difíciles</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-3">
+                                <div class="d-flex align-items-center">
+                                    <span class="me-2">⚔️</span>
+                                    <div>
+                                        <h5 class="mb-0">Velocidad de Hermes</h5>
+                                        <small>Completaste el módulo en tiempo récord</small>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="greek-border p-4 mt-4">
+                <h3 class="greek-header text-center mb-4">📜 Detalles de tu Odisea 📜</h3>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <div class="greek-icon">📚</div>
+                            <h4 class="greek-header">Lecciones Completadas</h4>
+                            <p class="display-6">1/1</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <div class="greek-icon">🎯</div>
+                            <h4 class="greek-header">Precisión</h4>
+                            <p class="display-6">100%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="text-center">
+            <a href="entrada a los modulos.html">
+                <button class="btn btn-lg px-5" style="background-color: #c9a959; color: #000;">
+                    Continuar tu Viaje
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
