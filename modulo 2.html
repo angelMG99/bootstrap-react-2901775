@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dioses del Olimpo - Portal Mitológico</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #ffd700;
+            --dark-red: #4a1010;
+            --darker-red: #2a0808;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Trajan Pro', serif;
+            background-image: linear-gradient(to bottom, #000000, #1a1010);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(74,16,16,0.9)),
+                        url('/api/placeholder/1920/400');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 3px solid var(--primary-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, var(--primary-gold), transparent);
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .god-card {
+            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+            border: 2px solid var(--primary-gold);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .god-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 215, 0, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .god-card:hover::before {
+            left: 100%;
+        }
+
+        .god-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .god-card .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        .god-card .card-body {
+            background: linear-gradient(45deg, rgba(26, 26, 26, 0.95), rgba(42, 42, 42, 0.95));
+            padding: 1.5rem;
+        }
+
+        .god-card .card-body * {
+            color: #ffffff;
+        }
+
+        .card-text {
+            color: #ffffff;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .god-title {
+            color: var(--primary-gold) !important;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .god-power {
+            color: #ff4444 !important;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .quiz-container {
+            background: rgba(10, 10, 10, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--primary-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .btn-custom {
+            background: linear-gradient(45deg, var(--dark-red), var(--darker-red));
+            color: var(--primary-gold);
+            border: 1px solid var(--primary-gold);
+            padding: 0.75rem 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background: linear-gradient(45deg, var(--darker-red), var(--dark-red));
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            color: var(--primary-gold);
+        }
+
+        .quiz-option {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--primary-gold);
+            padding: 1rem;
+            margin: 0.5rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #ffffff;
+        }
+
+        .quiz-option:hover {
+            background: rgba(74, 16, 16, 0.8);
+            transform: translateX(10px);
+        }
+
+        .quiz-option.selected {
+            background: var(--dark-red);
+            color: var(--primary-gold);
+        }
+
+        .quiz-option.correct {
+            background: rgba(0, 128, 0, 0.5);
+            border-color: #00ff00;
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(128, 0, 0, 0.5);
+            border-color: #ff0000;
+        }
+
+        .score-display {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            text-align: center;
+            margin-top: 2rem;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .progress-bar {
+            height: 0.5rem;
+            background: #2a2a2a;
+            margin-top: 1rem;
+            border-radius: 0.25rem;
+            overflow: hidden;
+        }
+
+        #quiz-progress {
+            background: linear-gradient(90deg, var(--primary-gold), #ff4444);
+            height: 100%;
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        .question-container {
+            display: none;
+        }
+
+        .question-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .explanation {
+            color: #ffd700;
+            font-style: italic;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 3px solid var(--primary-gold);
+            background: rgba(255, 215, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center animate__animated animate__fadeIn">
+        <h1 class="display-3" style="color: var(--primary-gold);">Dioses del Olimpo</h1>
+        <p class="lead" style="color: #d4d4d4;">Descubre el poder de los dioses griegos y demuestra tu conocimiento</p>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row" id="gods-section">
+            <div class="col-md-4 mb-4">
+                <div class="god-card card h-100 animate__animated animate__fadeInLeft">
+                    <img src="/api/placeholder/400/300" class="card-img-top" alt="Zeus">
+                    <div class="card-body">
+                        <h5 class="god-title">Zeus</h5>
+                        <p class="card-text">Rey de los dioses y gobernante del Monte Olimpo.</p>
+                        <p class="god-power">Poder: Control sobre el trueno y el rayo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="god-card card h-100 animate__animated animate__fadeInUp">
+                    <img src="/api/placeholder/400/300" class="card-img-top" alt="Poseidón">
+                    <div class="card-body">
+                        <h5 class="god-title">Poseidón</h5>
+                        <p class="card-text">Señor de los mares y las tormentas.</p>
+                        <p class="god-power">Poder: Control sobre los océanos</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="god-card card h-100 animate__animated animate__fadeInRight">
+                    <img src="/api/placeholder/400/300" class="card-img-top" alt="Ares">
+                    <div class="card-body">
+                        <h5 class="god-title">Ares</h5>
+                        <p class="card-text">Dios de la guerra y el conflicto.</p>
+                        <p class="god-power">Poder: Maestría en combate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-container animate__animated animate__fadeIn">
+            <h2 class="text-center mb-4 god-title">Prueba de Conocimiento Divino</h2>
+            
+            <div class="progress-bar">
+                <div id="quiz-progress"></div>
+            </div>
+
+            <div id="quiz" class="mt-4">
+                <!-- Las preguntas se generarán aquí -->
+            </div>
+
+            <div class="text-center mt-4">
+                <button id="prev-question" class="btn btn-custom me-2" style="display: none;">Anterior</button>
+                <button id="next-question" class="btn btn-custom">Siguiente</button>
+                <button id="submit-quiz" class="btn btn-custom" style="display: none;">Finalizar Prueba</button>
+            </div>
+
+            <div id="score" class="score-display"></div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "¿Quién es el rey de los dioses griegos?",
+                options: ["Zeus", "Poseidón", "Hades", "Ares"],
+                correct: 0,
+                explanation: "Zeus es el rey de los dioses y gobierna desde el Monte Olimpo."
+            },
+            {
+                question: "¿Cuál es el dominio principal de Poseidón?",
+                options: ["El fuego", "Los mares", "El inframundo", "El cielo"],
+                correct: 1,
+                explanation: "Poseidón es el señor de los mares y todas las aguas."
+            },
+            {
+                question: "¿Qué dios es conocido como el dios de la guerra?",
+                options: ["Hefesto", "Apolo", "Ares", "Hermes"],
+                correct: 2,
+                explanation: "Ares es el dios de la guerra y la violencia en la mitología griega."
+            },
+            {
+                question: "¿Cuál es el arma característica de Zeus?",
+                options: ["El tridente", "El rayo", "La lanza", "El arco"],
+                correct: 1,
+                explanation: "El rayo es el arma distintiva de Zeus, símbolo de su poder sobre los cielos."
+            },
+            {
+                question: "¿Qué criatura marina está asociada con Poseidón?",
+                options: ["El Pegaso", "La Hidra", "El Hipocampo", "El Minotauro"],
+                correct: 2,
+                explanation: "El Hipocampo, mitad caballo y mitad pez, es la montura tradicional de Poseidón."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answeredQuestions = new Array(questions.length).fill(false);
+
+        function createQuiz() {
+            const quizDiv = document.getElementById('quiz');
+            quizDiv.innerHTML = '';
+
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = `question-container ${index === 0 ? 'active' : ''}`;
+                questionDiv.innerHTML = `
+                    <h4 class="mb-4">Pregunta ${index + 1} de ${questions.length}</h4>
+                    <p class="h5 mb-3">${q.question}</p>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <div class="quiz-option" data-option="${i}">
+                                ${opt}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="explanation mt-3" style="display: none;">
+                        <p>${q.explanation}</p>
+                    </div>
+                `;
+                quizDiv.appendChild(questionDiv);
+            });
+
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const questionContainer = this.closest('.question-container');
+                    questionContainer.querySelectorAll('.quiz-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                    answeredQuestions[currentQuestion] = true;
+                    updateNavigation();
+                });
+            });
+
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = document.getElementById('quiz-progress');
+            const percentage = ((currentQuestion + 1) / questions.length) * 100;
+            progress.style.width = `${percentage}%`;
+        }
+
+        function updateNavigation() {
+            const prevButton = document.getElementById('prev-question');
+            const nextButton = document.getElementById('next-question');
+            const submitButton = document.getElementById('submit-quiz');
+
+            prevButton.style.display = currentQuestion > 0 ? 'inline-block' : 'none';
+            
+            if (currentQuestion === questions.length - 1) {
+                nextButton.style.display = 'none';
+                submitButton.style.display = answeredQuestions[currentQuestion] ? 'inline-block' : 'none';
+            } else {
+                nextButton.style.display = 'inline-block';
+                submitButton.style.display = 'none';
+            }
+        }

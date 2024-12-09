@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Portal Mitológico</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #0c0c21;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lightning-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .lightning {
+            position: absolute;
+            background: #fff;
+            width: 2px;
+            height: 0;
+            transform-origin: top;
+            opacity: 0;
+            filter: blur(1px);
+        }
+
+        @keyframes flash {
+            0% {
+                opacity: 0;
+                height: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            15% {
+                opacity: 0.3;
+            }
+
+            20% {
+                opacity: 1;
+                height: 100vh;
+            }
+
+            25% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+                height: 100vh;
+            }
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+            animation: rotate 90s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 15px;
+            transition: all 1ms ease;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-login {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            border: none;
+            padding: 12px 30px;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+
+        .btn-login::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover::after {
+            transform: rotate(225deg);
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+        }
+
+        .form-floating label {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-floating>.form-control:focus~label,
+        .form-floating>.form-control:not(:placeholder-shown)~label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .alert {
+            display: none;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lightning-container" id="lightningContainer"></div>
+
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+        <div class="login-container">
+            <h1>Iniciar Sesión</h1>
+            <form id="loginForm">
+                <div class="form-floating mb-4">
+                    <input type="text" class="form-control" id="username" placeholder="Usuario">
+                    <label for="username">Usuario</label>
+                </div>
+                <div class="form-floating mb-4">
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                    <label for="password">Contraseña</label>
+                </div>
+
+                <div class="d-grid">
+                    <a href="entrada a los modulos.html">
+                        <button type="submit" class="btn btn-login">Entrar</button>
+                </div>
+            </form>
+            <div class="alert" id="loginAlert" role="alert"></div>
+        </div>
+        </a>
+    </div>
+
+    <script>
+        function createLightning() {
+            const container = document.getElementById('lightningContainer');
+            const lightning = document.createElement('div');
+            lightning.className = 'lightning';
+
+            const startX = Math.random() * window.innerWidth;
+            lightning.style.left = `${startX}px`;
+
+            const rotation = -15 + Math.random() * 30;
+            lightning.style.transform = `rotate(${rotation}deg)`;
+
+            // Animación
+            lightning.style.animation = 'flash 1s ease-out forwards';
+
+            container.appendChild(lightning);
+
+
+            setTimeout(() => {
+                container.removeChild(lightning);
+            }, 1000);
+        }
+
+        function generateLightning() {
+            createLightning();
+            const delay = 2000 + Math.random() * 3000;
+            setTimeout(generateLightning, delay);
+        }
+
+
+        generateLightning();
+
+
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const alert = document.getElementById('loginAlert');
+
+
+            if (username && password) {
+                alert.className = 'alert alert-success';
+                alert.style.display = 'block';
+                alert.textContent = '¡Inicio de sesión exitoso!';
+
+                setTimeout(() => {
+
+                    console.log('Redirigiendo...');
+                }, 1500);
+            } else {
+                alert.className = 'alert alert-danger';
+                alert.style.display = 'block';
+                alert.textContent = 'Por favor, completa todos los campos.';
+            }
+        });
+    </script>
+</body>
+
+</html>

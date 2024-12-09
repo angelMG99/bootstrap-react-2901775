@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitología Griega - La Titanomaquia</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url(https://i.pinimg.com/control2/474x/cc/69/36/cc693685cccd201a67fc9614386ef62c.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            border: 2px solid #c5a572;
+            border-radius: 15px;
+        }
+
+        h1,
+        h2 {
+            color: #8b0000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-family: 'Cinzel Decorative', cursive;
+        }
+
+        .btn-primary {
+            background-color: #8b0000;
+            border-color: #8b0000;
+            font-family: 'Cinzel', serif;
+        }
+
+        .btn-primary:hover {
+            background-color: #5c0000;
+            border-color: #5c0000;
+        }
+
+        .correct-answer {
+            background-color: rgba(40, 167, 69, 0.2);
+        }
+
+        .wrong-answer {
+            background-color: rgba(220, 53, 69, 0.2);
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid my-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card p-4">
+                    <h1 class="text-center mb-4">La Titanomaquia</h1>
+                    <div class="ratio ratio-16x9 mb-4">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/ESmvKtQ0EcA?si=JNe7TMc8reBfYYjd"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <h4>La Titanomaquia: La Gran Guerra de los Dioses</h4>
+
+                    <p>La Titanomaquia fue una guerra de una década entre los Titanes y los dioses olímpicos por el
+                        control del cosmos. Liderados por el Titán Cronos, los Titanes fueron derrotados por los dioses
+                        más jóvenes, encabezados por Zeus. La Titanomaquia es una de las batallas más épicas de la
+                        mitología griega. Se trata de una guerra
+                        cósmica entre dos generaciones de dioses: los Titanes, hijos de Gea (la Tierra) y Urano (el
+                        Cielo), y los Olímpicos, liderados por Zeus.</p>
+
+                    <h4>¿Cómo empezó todo?</h4>
+
+                    <p>El reinado de Cronos: Cronos, uno de los Titanes, derrocó a su padre Urano y se convirtió en el
+                        gobernante del universo. Temiendo ser destronado por sus hijos, se los comía al nacer.
+                        El nacimiento de Zeus: Rea, la esposa de Cronos, logró esconder a su hijo Zeus. Cuando creció,
+                        Zeus liberó a sus hermanos y hermanas que habían sido devorados por su padre.
+                        La guerra: Zeus y sus hermanos, Poseidón y Hades, junto con otros dioses, se enfrentaron a los
+                        Titanes en una terrible batalla que duró diez años.</p>
+
+
+                    <h4>¿Cómo terminó?</h4>
+
+                    <p></p>La victoria de los Olímpicos: Con la ayuda de los Cíclopes y los Hecatónquiros (gigantes de
+                    cien
+                    brazos), los Olímpicos lograron vencer a los Titanes.
+                    El castigo a los Titanes: Los Titanes fueron encadenados y confinados en el Tártaro, un lugar
+                    oscuro y abismal en el inframundo.</p>
+
+                    <h4>¿Cuál fue el resultado?</h4>
+
+                    <p>El nacimiento del Olimpo: Con la victoria de los Olímpicos, se estableció el Monte Olimpo como
+                        la morada de los dioses y el centro del universo. Zeus se convirtió en el rey de los dioses y
+                        repartió el mundo entre sus hermanos: Poseidón gobernó los mares y Hades el inframundo.
+                        En resumen, la Titanomaquia fue un conflicto fundamental en la mitología griega que marcó el
+                        inicio de una nueva era y el establecimiento del orden cósmico. Esta guerra representa la lucha
+                        eterna entre el antiguo y el nuevo, el caos y el orden, y ha sido fuente de inspiración para
+                        innumerables artistas y escritores a lo largo de los siglo. Este conflicto épico marcó la
+                        transición del dominio de los Titanes al reinado de los dioses
+                        olímpicos, quienes se convertirían en las principales deidades del panteón griego.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card p-4">
+                    <h2 class="text-center mb-4">Pon a prueba tus conocimientos</h2>
+                    <form id="quizForm">
+                        <div class="mb-3">
+                            <label for="question1" class="form-label">¿Quién era el líder de los Titanes?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question1" value="1">
+                                <label class="form-check-label">Poseidón</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question1" value="2">
+                                <label class="form-check-label">Cronos</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question1" value="3">
+                                <label class="form-check-label">Hades</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question1" value="4">
+                                <label class="form-check-label">Zeus</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="question2" class="form-label">¿Cuánto duró la Titanomaquia?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question2" value="1">
+                                <label class="form-check-label">5 años</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question2" value="2">
+                                <label class="form-check-label">10 años</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question2" value="3">
+                                <label class="form-check-label">15 años</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question2" value="4">
+                                <label class="form-check-label">20 años</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="question3" class="form-label">¿Qué dios olímpico lideró la derrota de los
+                                Titanes?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question3" value="1">
+                                <label class="form-check-label">Poseidón</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question3" value="2">
+                                <label class="form-check-label">Hera</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question3" value="3">
+                                <label class="form-check-label">Atenea</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question3" value="4">
+                                <label class="form-check-label">Zeus</label>
+                            </div>
+                        </div>
+                        <a href="resultado modulos.html">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </a>
+                    </form>
+                    <div id="result" class="alert"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+
+            const correctAnswers = {
+                question1: "2",
+                question2: "2",
+                question3: "4"
+            };
+
+            let score = 0;
+            let total = Object.keys(correctAnswers).length;
+
+
+            for (let question in correctAnswers) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected) {
+                    if (selected.value === correctAnswers[question]) {
+                        score++;
+                        selected.parentElement.classList.add('correct-answer');
+                    } else {
+                        selected.parentElement.classList.add('wrong-answer');
+
+                        document.querySelector(`input[name="${question}"][value="${correctAnswers[question]}"]`)
+                            .parentElement.classList.add('correct-answer');
+                    }
+                }
+            }
+
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            if (score === total) {
+                resultDiv.className = 'alert alert-success';
+                resultDiv.textContent = `¡Excelente! Has respondido correctamente todas las preguntas (${score}/${total})`;
+            } else if (score > total / 2) {
+                resultDiv.className = 'alert alert-info';
+                resultDiv.textContent = `¡Buen trabajo! Has respondido correctamente ${score} de ${total} preguntas`;
+            } else {
+                resultDiv.className = 'alert alert-warning';
+                resultDiv.textContent = `Has respondido correctamente ${score} de ${total} preguntas. ¡Sigue estudiando!`;
+            }
+
+
+            const inputs = document.querySelectorAll('input[type="radio"]');
+            inputs.forEach(input => input.disabled = true);
+
+
+            const submitButton = document.querySelector('button[type="submit"]');
+            submitButton.textContent = 'Examen Completado';
+            submitButton.disabled = true;
+        });
+    </script>
+</body>
+
+</html>
